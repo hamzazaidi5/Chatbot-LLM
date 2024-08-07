@@ -1,0 +1,4 @@
+langchain_community
+fastapi
+sqlalchemy
+uvicorn
