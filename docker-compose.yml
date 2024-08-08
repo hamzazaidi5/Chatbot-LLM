@@ -2,24 +2,45 @@ version: '3.8'
 
 services:
   ollama:
-    image: ollama/ollama
+    build:
+      context: .
+      dockerfile: ./Dockerfile.ollama
+    image: ollama
     container_name: ollama
-    volumes:
-      - ollama:/root/.ollama
+    entrypoint: /tmp/run_ollama.sh
     ports:
-      - "11434:11434"
-    command: ["sh", "-c", "ollama pull llama2 && ollama pull mistral"]
+      - 11434:11434
+    volumes:
+      - .:/app/
+      - ./ollama/ollama:/root/.ollama
+    pull_policy: always
+    tty: true
+    restart: always
+    networks:
+      - net
+
   python_app:
     build:
-      context: ./python_app
-    container_name: my_fastapi_app
+      context: ./python-app  
+    container_name: python_app
+    depends_on:
+      - ollama
     ports:
-      - "8000:8000"
-  nodejs_app:
+      - "8000:8000" 
+    networks:
+      - net
+
+  nodejs-api:
     build:
-      context: ./nodejs-api
-    container_name: my_nodejs_app
+      context: ./nodejs-api 
+    container_name: nodejs_api
+    depends_on:
+      - python_app
     ports:
-      - "3000:3000"
-volumes:
-  ollama:
+      - "3000:3000"  
+    networks:
+      - net
+
+networks:
+  net:
+    driver: bridge
