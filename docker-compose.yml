@@ -8,13 +8,26 @@ services:
     ports:
       - "11434:11434"
     restart: unless-stopped
+    entrypoint: ["/bin/sh", "-c", "ollama pull mistral && ollama pull llama2 && tail -f /dev/null"]
 
-  fastapi-app:
-    build: .
+  fastapi:
+    build:
+      context: ./python_app
+      dockerfile: Dockerfile
     ports:
       - "8000:8000"
     depends_on:
       - ollama
+    restart: unless-stopped
+
+  nodejs:
+    build:
+      context: ./nodejs-api
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - fastapi
     restart: unless-stopped
 
 volumes:
