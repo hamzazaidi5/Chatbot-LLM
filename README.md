@@ -17,6 +17,8 @@ This project implements a distributed LLM system using Python and Node.js. It al
 
    ```bash
    docker-compose up --build
+   Or
+   ./run_app.sh
 
 4. The Python API will be accessible at http://localhost:5000
 5. The Node.js API server will be accessible at http://localhost:3000
