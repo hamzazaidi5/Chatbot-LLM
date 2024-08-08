@@ -26,10 +26,10 @@ This project implements a distributed LLM system using Python and Node.js. It al
 Endpoint: POST /query
 Description: Sends a query to the FastAPI service.
 Request Body
-{
+```{
   "query": "your_query_here",
   "conversation_id": "your_conversation_id_here",
-  "model_name": "your_model_name_here"
+  "model_name": "your_model_name_here"  //mistral or llama2
 }
 
 Response: Returns the response from the FastAPI service.
