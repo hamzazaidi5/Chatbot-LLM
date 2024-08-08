@@ -48,3 +48,8 @@ Description: Retrieves a specific conversation by its ID.
 URL Parameters:
 id: The ID of the conversation you want to retrieve.
 Response: Returns the conversation object or a 404 error if not found.
+
+
+## Performance Note
+
+The performance of the system, including response times, depends on the processing power and available resources of your machine. Faster hardware will generally lead to quicker response times and improved overall performance.
