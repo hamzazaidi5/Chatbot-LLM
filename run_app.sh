@@ -9,10 +9,10 @@ docker exec -it ollama ollama pull llama2
 # Pull the mistral model
 docker exec -it ollama ollama pull mistral
 
-# Navigate to the python_app directory
-cd python_app || { echo "Directory python_app not found"; exit 1; }
+# Navigate to the python-app directory
+cd python-app || { echo "Directory python-app not found"; exit 1; }
 
-# Build and run the Dockerfile in the python_app directory
+# Build and run the Dockerfile in the python-app directory
 docker build -t my_fastapi_app .  
 docker run -d -p 8000:8000 my_fastapi_app 
 
