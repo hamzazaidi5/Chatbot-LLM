@@ -9,8 +9,7 @@ const PORT = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
-// FastAPI service URL
-const FASTAPI_URL = 'http://localhost:8000'; // Adjust if necessary
+const FASTAPI_URL = 'http://0.0.0.0:8000'; // Adjust if necessary
 
 // Send a query to the FastAPI service
 app.post('/query', async (req: Request, res: Response) => {
@@ -60,5 +59,5 @@ app.get('/', (req: Request, res: Response) => {
 
 // Start the server
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Server is running on http://0.0.0.0:${PORT}`);
 });

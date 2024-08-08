@@ -1,3 +1,5 @@
 __pycache__
 venv
 conversations.db
+node_modules
+ollama
