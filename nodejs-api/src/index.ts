@@ -24,7 +24,7 @@ app.post('/query', async (req: Request, res: Response) => {
         res.json(response.data);
     } catch (error) {
         console.error(error);
-        res.status(500).json({ error: 'Error communicating with FastAPI service' });
+        res.status(500).json({ error: error });
     }
 });
 
