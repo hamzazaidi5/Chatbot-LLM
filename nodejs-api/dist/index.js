@@ -21,7 +21,7 @@ const PORT = 3000;
 app.use((0, cors_1.default)());
 app.use(body_parser_1.default.json());
 // FastAPI service URL
-const FASTAPI_URL = 'http://localhost:8000'; // Adjust if necessary
+const FASTAPI_URL = 'http://python_app:8000'; // Adjust if necessary
 // Send a query to the FastAPI service
 app.post('/query', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { query, conversation_id, model_name } = req.body;
