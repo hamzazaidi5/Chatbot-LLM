@@ -56,7 +56,7 @@ def create_conversation(request: QueryRequest, db: Session = Depends(get_db)):
     # Add the new user query to the conversation
     messages.append({"role": "user", "content": query})
 
-    llm = Ollama(model=model_name, num_predict=50, system="Give short answers as much as possible.")
+    llm = Ollama(model=model_name, num_predict=50, system="Give short answers as much as possible.", base_url="http://0.0.0.0:11434")
     
     response = llm.invoke(messages)
     messages.append({"role": "assistant", "content": response.strip()})
