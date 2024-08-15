@@ -9,7 +9,7 @@ const PORT = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
-const FASTAPI_URL = 'http://0.0.0.0:8000'; // Adjust if necessary
+const FASTAPI_URL = 'http://python_app:8000'; // Adjust if necessary
 
 // Send a query to the FastAPI service
 app.post('/query', async (req: Request, res: Response) => {
